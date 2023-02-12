@@ -30,4 +30,7 @@ public class ValidateUtil {
             return defaultValue;
         }
     }
+    public static Integer validateSpeed(Integer value, Integer defaultValue) {
+        return (value < 60 || value == 0 ? defaultValue : value);
+    }
 }

@@ -3,13 +3,8 @@ package transport;
 import static transport.ValidateUtil.*;
 
 
-public class Car {
-    private final String brand;
-    private final String model;
+public class Car extends Transport {
     private double engineVolume;
-    private String color;
-    private final int year;
-    private final String country;
     private String transmission;
     private final String bodyType;
     private String number;
@@ -19,13 +14,10 @@ public class Car {
 
 
     public Car(String brand, String model, double engineVolume, String color, int year, String country,
-               String transmission, String bodyType, String number, int numberOfSeats, Key key) {
-        this.brand = validateCarParameters(brand);
-        this.model = validateCarParameters(model);
+               String transmission, String bodyType, String number, int numberOfSeats, int maxSpeed, Key key) {
+        super(brand, model, color, year, country, maxSpeed);
+
         this.engineVolume = validateEngineVolume(engineVolume);
-        this.color = validateCarColor(color);
-        this.year = validateCarYear(year);
-        this.country = validateCarParameters(country);
         this.transmission = validateCarParameters(transmission);
         this.bodyType = validateCarParameters(bodyType);
         this.number = validateCarNumber(number);
@@ -33,28 +25,9 @@ public class Car {
         setKey(key);
     }
 
-    public String getBrand() {
-        return brand;
-    }
-
-    public String getModel() {
-        return model;
-    }
 
     public double getEngineVolume() {
         return engineVolume;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public String getCountry() {
-        return country;
     }
 
     public String getTransmission() {
@@ -75,10 +48,6 @@ public class Car {
 
     public void setEngineVolume(double engineVolume) {
         this.engineVolume = engineVolume;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
     }
 
     public void setTransmission(String transmission) {
@@ -106,14 +75,6 @@ public class Car {
 
     public static double validateEngineVolume(double value) {
         return validateEngine(value, 1.5);
-    }
-
-    public static String validateCarColor(String value) {
-        return validateColor(value, "белый");
-    }
-
-    public static Integer validateCarYear(Integer value) {
-        return validateYear(value, 2000);
     }
 
     public static Integer validateCarNumberOfSeats(Integer value) {
@@ -160,10 +121,10 @@ public class Car {
 
     @Override
     public String toString() {
-        return "\n" + brand + " " + model + ", "
-                + year + " года выпуска, сборка: " + country + ", "
-                +  color + " цвет кузова, объём двигателя: " + engineVolume +"л, коробка передач: "
+        return "\n" + getBrand() + " " + getModel() + ", "
+                + getYear() + " года выпуска, сборка: " + getCountry() + ", "
+                +  getColor() + " цвет кузова, объём двигателя: " + engineVolume +"л, коробка передач: "
                 + transmission + ", тип кузова: " + bodyType + ", регистрационный номер: " + number +
-                ", Количество мест: " + numberOfSeats + ", " + key + "\n";
+                ", Количество мест: " + numberOfSeats + ", максимальная скорость: " + getMaxSpeed() + "км/ч, "+ key + "\n";
     }
 }
