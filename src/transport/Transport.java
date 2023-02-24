@@ -1,23 +1,24 @@
 package transport;
-import static transport.ValidateUtil.*;
+public abstract class Transport<T extends Driver> implements Competing {
+    protected final String brand;
+    protected final String model;
+    protected final double engineVolume;
+    protected T driver;
 
-public class Transport {
-    private final String brand;
-    private final String model;
-    private String color;
-    private final int year;
-    private final String country;
-    private int maxSpeed;
+    public Transport(String brand, String model, double engineVolume, T driver) {
+        if (brand == null || brand.isEmpty()){
+            brand = "default";}
+        this.brand = brand;
 
+        if (model == null || model.isEmpty()) {
+        model = "default";}
+        this.model = model;
 
-    public Transport(String brand, String model, String color, int year, String country, int maxSpeed) {
-
-        this.brand = validateCarParameters(brand);
-        this.model = validateCarParameters(model);
-        this.color = validateCarColor(color);
-        this.year = validateCarYear(year);
-        this.country = validateCarParameters(country);
-        this.maxSpeed = validateMaxSpeed(maxSpeed);
+        if (engineVolume <= 0) {
+            engineVolume = 1.6;
+        }
+        this.engineVolume = engineVolume;
+        this.driver = driver;
     }
 
     public String getBrand() {
@@ -27,40 +28,26 @@ public class Transport {
     public String getModel() {
         return model;
     }
-    public String getColor() {
-        return color;
+
+    public double getEngineVolume() {
+        return engineVolume;
     }
 
-    public int getYear() {
-        return year;
+    public T getDriver() {
+        return driver;
     }
 
-    public String getCountry() {
-        return country;
+    public abstract void startMoving();
+    public abstract void stopMoving();
+
+    public void printInfo(){
+        System.out.println("водитель " + driver.getName() + " управляет автомобилем " + brand + " и будет участвовать в заезде");
     }
 
-    public int getMaxSpeed() {
-        return maxSpeed;
-    }
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public void setMaxSpeed(int maxSpeed) {
-        this.maxSpeed = maxSpeed;
-    }
-    public static String validateCarColor(String value) {
-        return validateColor(value, "белый");
-    }
-
-    public static Integer validateCarYear(Integer value) {
-        return validateYear(value, 2000);
-    }
-
-    public static String validateCarParameters(String value) {
-        return validateString(value, "default");
-    }
-    public static Integer validateMaxSpeed(Integer value) {
-        return  validateSpeed(value, 60);
+    @Override
+    public String toString() {
+        return "Марка: " + brand + ", " +
+                "Модель: " + model + ", " +
+                "Объём двигателя: "  + engineVolume + "";
     }
 }
