@@ -5,6 +5,7 @@ public abstract class Transport<T extends Driver> implements Competing {
     protected final double engineVolume;
     protected T driver;
 
+
     public Transport(String brand, String model, double engineVolume, T driver) {
         if (brand == null || brand.isEmpty()){
             brand = "default";}
@@ -44,6 +45,8 @@ public abstract class Transport<T extends Driver> implements Competing {
     public abstract void pitStop();
     public abstract Type getType();
     public abstract void printType();
+
+    abstract boolean passDiagnostics() throws TransportTypeException;
 
     @Override
     public String toString() {

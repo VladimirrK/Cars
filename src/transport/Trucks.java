@@ -9,6 +9,8 @@ public class Trucks extends Transport<DriverC> {
         this.weight = weight;
     }
 
+
+
     public Weight getWeight() {
         return weight;
     }
@@ -98,6 +100,11 @@ public class Trucks extends Transport<DriverC> {
             }
             return null;
         }
+    }
+
+    @Override
+    public boolean passDiagnostics() throws TransportTypeException {
+        return true;
     }
 
     @Override

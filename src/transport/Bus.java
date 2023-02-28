@@ -61,6 +61,10 @@ public class Bus extends Transport<DriverD> {
             System.out.println(getCapacity());
         }
     }
+    @Override
+    public boolean passDiagnostics() throws TransportTypeException {
+            throw new TransportTypeException("Автобусы проходить диагностику не должны");
+    }
 
     public enum Capacity {
         EXTRA_SMALL(1, 9),

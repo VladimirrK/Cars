@@ -59,6 +59,11 @@ public class Car extends Transport<DriverB> {
         }
     }
 
+    @Override
+    public boolean passDiagnostics() throws TransportTypeException {
+        return true;
+    }
+
     public enum BodyType {
         SEDAN,
         HATCHBACK,
