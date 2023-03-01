@@ -5,6 +5,7 @@ public abstract class Transport<T extends Driver> implements Competing {
     protected final double engineVolume;
     protected T driver;
 
+
     public Transport(String brand, String model, double engineVolume, T driver) {
         if (brand == null || brand.isEmpty()){
             brand = "default";}
@@ -39,15 +40,18 @@ public abstract class Transport<T extends Driver> implements Competing {
 
     public abstract void startMoving();
     public abstract void stopMoving();
+    public abstract void bestCircleTime();
+    public abstract void maxSpeed();
+    public abstract void pitStop();
+    public abstract Type getType();
+    public abstract void printType();
 
-    public void printInfo(){
-        System.out.println("водитель " + driver.getName() + " управляет автомобилем " + brand + " и будет участвовать в заезде");
-    }
+    abstract boolean passDiagnostics() throws TransportTypeException;
 
     @Override
     public String toString() {
         return "Марка: " + brand + ", " +
                 "Модель: " + model + ", " +
-                "Объём двигателя: "  + engineVolume + "";
+                "Объём двигателя: "  + engineVolume + ",";
     }
 }
