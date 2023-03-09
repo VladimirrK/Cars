@@ -1,12 +1,17 @@
 package transport;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class Transport<T extends Driver> implements Competing {
     protected final String brand;
     protected final String model;
     protected final double engineVolume;
     protected T driver;
+    protected List<Mechanic> arrayOfMechanics;
 
 
-    public Transport(String brand, String model, double engineVolume, T driver) {
+    public Transport(String brand, String model, double engineVolume, T driver, List<Mechanic> arrayOfMechanics) {
         if (brand == null || brand.isEmpty()){
             brand = "default";}
         this.brand = brand;
@@ -20,6 +25,7 @@ public abstract class Transport<T extends Driver> implements Competing {
         }
         this.engineVolume = engineVolume;
         this.driver = driver;
+        this.arrayOfMechanics = arrayOfMechanics;
     }
 
     public String getBrand() {
@@ -46,8 +52,8 @@ public abstract class Transport<T extends Driver> implements Competing {
     public abstract Type getType();
     public abstract void printType();
 
-    abstract boolean passDiagnostics() throws TransportTypeException;
 
+    abstract boolean passDiagnostics() throws TransportTypeException;
     @Override
     public String toString() {
         return "Марка: " + brand + ", " +
