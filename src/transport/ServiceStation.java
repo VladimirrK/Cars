@@ -21,13 +21,13 @@ public class ServiceStation {
         }
         queueOfTransport.add(auto);
     }
-    public void carryOutAVehicleInspection(Transport<?> auto) throws TransportTypeException {
+    public void carryOutAVehicleInspection() throws TransportTypeException {
         while (queueOfTransport.isEmpty()) {
-            if (auto.passDiagnostics()) {
+            if (queueOfTransport instanceof Bus) {
+                throw new TransportTypeException();
+            }
                 System.out.println("Проходим ТО");
                 queueOfTransport.poll();
             }
         }
-        System.out.println("Автобусы не проходят ТО");
     }
-}

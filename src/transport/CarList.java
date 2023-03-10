@@ -18,7 +18,6 @@ public class CarList {
                         Car.BodyType.SEDAN, List.of(new Mechanic("Петор Петров", "Ремонт Мастер")));
                 System.out.println("водитель " + driver1 + " управляет автомобилем " + audi + ", будет участвовать в заезде");
                 serviceStation.addTransportToQueue(audi);
-                serviceStation.carryOutAVehicleInspection(audi);
                 Mechanic.conductMaintenance();
                 Mechanic.fixTheCar();
                 endDiagnostics(audi);
@@ -27,7 +26,6 @@ public class CarList {
                         Car.BodyType.COUPE, List.of(new Mechanic("Василий Васильев", "Ремонт Мастер")));
                 System.out.println("водитель " + driver2 + " управляет автомобилем " + bmw + ", будет участвовать в заезде");
                 serviceStation.addTransportToQueue(bmw);
-                serviceStation.carryOutAVehicleInspection(bmw);
                 Mechanic.conductMaintenance();
                 Mechanic.fixTheCar();
                 endDiagnostics(bmw);
@@ -36,7 +34,6 @@ public class CarList {
                         Car.BodyType.CROSSOVER, List.of(new Mechanic("Игорь Крюк", "Эксперт")));
                 System.out.println("водитель " + driver3 + " управляет автомобилем " + kia + ", будет участвовать в заезде");
                 serviceStation.addTransportToQueue(kia);
-                serviceStation.carryOutAVehicleInspection(kia);
                 Mechanic.conductMaintenance();
                 Mechanic.fixTheCar();
                 endDiagnostics(kia);
@@ -45,7 +42,6 @@ public class CarList {
                         Car.BodyType.SEDAN, List.of(new Mechanic("Дмитрий Промкин", "Эксперт")));
                 System.out.println("водитель " + driver4 + " управляет автомобилем " + hyundai + ", будет участвовать в заезде");
                 serviceStation.addTransportToQueue(hyundai);
-                serviceStation.carryOutAVehicleInspection(hyundai);
                 Mechanic.conductMaintenance();
                 Mechanic.fixTheCar();
                 endDiagnostics(hyundai);
@@ -91,7 +87,6 @@ public class CarList {
                         Trucks.Weight.loadCapacity(2.8f), List.of(new Mechanic("Игорь Крюк", "Эксперт")));
                 System.out.println("водитель " + driver9 + " управляет автомобилем " + truckHyundai + ", будет участвовать в заезде");
                 serviceStation.addTransportToQueue(truckHyundai);
-                serviceStation.carryOutAVehicleInspection(truckHyundai);
                 Mechanic.conductMaintenance();
                 Mechanic.fixTheCar();
                 endDiagnostics(truckHyundai);
@@ -100,7 +95,6 @@ public class CarList {
                         Trucks.Weight.loadCapacity(22.5f), List.of(new Mechanic("Игорь Крюк", "Эксперт")));
                 System.out.println("водитель " + driver10 + " управляет автомобилем " + ural + ", будет участвовать в заезде");
                 serviceStation.addTransportToQueue(ural);
-                serviceStation.carryOutAVehicleInspection(ural);
                 Mechanic.conductMaintenance();
                 Mechanic.fixTheCar();
                 endDiagnostics(ural);
@@ -109,7 +103,6 @@ public class CarList {
                         Trucks.Weight.loadCapacity(12.8f), List.of(new Mechanic("Игорь Крюк", "Эксперт")));
                 System.out.println("водитель " + driver11 + " управляет автомобилем " + daewoo + ", будет участвовать в заезде");
                 serviceStation.addTransportToQueue(daewoo);
-                serviceStation.carryOutAVehicleInspection(daewoo);
                 Mechanic.conductMaintenance();
                 Mechanic.fixTheCar();
                 endDiagnostics(daewoo);
@@ -118,7 +111,6 @@ public class CarList {
                         Trucks.Weight.loadCapacity(32f), List.of(new Mechanic("Игорь Крюк", "Эксперт")));
                 System.out.println("водитель " + driver12 + " управляет автомобилем " + howo + ", будет участвовать в заезде");
                 serviceStation.addTransportToQueue(howo);
-                serviceStation.carryOutAVehicleInspection(howo);
                 Mechanic.conductMaintenance();
                 Mechanic.fixTheCar();
                 endDiagnostics(howo);
