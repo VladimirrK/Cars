@@ -1,14 +1,11 @@
 package transport;
 
 import java.sql.SQLOutput;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class CarList {
 
-        public static void main(String[] args) throws TransportTypeException {
+        public static void main(String[] args) {
 
                 ServiceStation serviceStation = new ServiceStation();
 
@@ -133,9 +130,35 @@ public class CarList {
                 transports.add(daewoo);
                 transports.add(howo);
 
+                List<Driver> drivers = new ArrayList<>();
+                drivers.add(driver1);
+                drivers.add(driver2);
+                drivers.add(driver3);
+                drivers.add(driver4);
+                drivers.add(driver5);
+                drivers.add(driver6);
+                drivers.add(driver7);
+                drivers.add(driver8);
+                drivers.add(driver9);
+                drivers.add(driver10);
+                drivers.add(driver11);
+                drivers.add(driver12);
+
+
                 Map<Transport<?>, List<Mechanic>> map = new HashMap<>();
                 for (Transport<?> transport : transports) {
                         map.put(transport, transport.getArrayOfMechanics());
+                }
+
+                Set<Driver> driverSet = new HashSet<>();
+                for (Driver driver : drivers) {
+                        driverSet.add(driver);
+                }
+
+                Iterator<Driver> iterator = driverSet.iterator();
+                while (iterator.hasNext()) {
+                        Driver driver = iterator.next();
+                        System.out.println(driver);
                 }
         }
 
