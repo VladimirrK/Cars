@@ -1,11 +1,13 @@
 package transport;
 
+import java.util.List;
+
 public class Trucks extends Transport<DriverC> {
 
     private Weight weight;
 
-    public Trucks(String brand, String model, double engineVolume, DriverC driver, Weight weight) {
-        super(brand, model, engineVolume, driver);
+    public Trucks(String brand, String model, double engineVolume, DriverC driver, Weight weight, List<Mechanic> arrayOfMechanics) {
+        super(brand, model, engineVolume, driver, arrayOfMechanics);
         this.weight = weight;
     }
 
