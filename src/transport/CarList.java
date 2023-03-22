@@ -2,9 +2,12 @@ package transport;
 
 import java.sql.SQLOutput;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CarList {
+
         public static void main(String[] args) throws TransportTypeException {
 
                 ServiceStation serviceStation = new ServiceStation();
@@ -129,7 +132,13 @@ public class CarList {
                 transports.add(ural);
                 transports.add(daewoo);
                 transports.add(howo);
+
+                Map<Transport<?>, List<Mechanic>> map = new HashMap<>();
+                for (Transport<?> transport : transports) {
+                        map.put(transport, transport.getArrayOfMechanics());
+                }
         }
+
 
         public static void endDiagnostics(Transport<?>... transports) {
                 for (Transport<?> transport : transports) {
